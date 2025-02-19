@@ -1,0 +1,57 @@
+[
+    {
+        "question": "Which planet is closest to the Sun?",
+        "answers": ["Venus", "Mercury", "Earth", "Mars"],
+        "correctAnswer": "Mercury",
+        "timeLimit": 30
+    },
+    {
+        "question": "Which data structure organizes items in a First-In, First-Out (FIFO) manner",
+        "answers": ["Stack", "Queue", "Tree", "Graph"],
+        "correctAnswer": "Queue",
+        "timeLimit": 30
+    },
+    {
+        "question": "Which of the following is primarily used for structuring web pages?",
+        "answers": ["Python", "Java", "HTML", "C++"],
+        "correctAnswer": "HTML",
+        "timeLimit": 30
+    },
+    {
+        "question": "Which chemical symbol stands for Gold?",
+        "answers": ["Au", "Gd", "Gd", "Gd"],
+        "correctAnswer": "Au",
+        "timeLimit": 30
+    },
+    {
+        "question": "Which of these processes is not typically involved in refining petroleum?",
+        "answers": ["Fractional distillation", "Cracking", "Polymerization", "Filtration"],
+        "correctAnswer": "Filtration",
+        "timeLimit": 30
+    },
+    {
+        "question":"What is the value of 12 + 28?",
+        "correctAnswer":"40",
+        "timeLimit": 30
+    },
+    {
+        "question":"How many states are there in the United States?",
+        "correctAnswer":"50",
+        "timeLimit": 30
+    },
+    {
+        "question":"In which year was the Declaration of Independence signed?",
+        "correctAnswer":"1776",
+        "timeLimit": 30
+    },
+    {
+        "question":" What is the value of pi rounded to the nearest integer?",
+        "correctAnswer":"3",
+        "timeLimit": 30
+    },
+    {
+        "question":"If a car travels at 60 mph for 2 hours, how many miles does it travel?",
+        "correctAnswer":"120",
+        "timeLimit": 30
+    }
+]
