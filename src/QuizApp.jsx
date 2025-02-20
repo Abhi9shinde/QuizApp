@@ -6,7 +6,7 @@ const QuizApp = () => {
     const [questions] = useState(questionData);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [score, setScore] = useState(1);
+    const [score, setScore] = useState(0);
     const [quizCompleted, setQuizCompleted] = useState(false);
     const [attempts, setAttempts] = useState([]);
     const [timeLeft, setTimeLeft] = useState(30);
@@ -121,23 +121,25 @@ const QuizApp = () => {
             setUserInput("");
         } else {
             setQuizCompleted(true);
-            saveAttempt();
+            saveAttempt(score + (selectedAnswer === questions[currentQuestion].correctAnswer ? 1 : 0));
         }
     };
 
-    const saveAttempt = () => {
+    const saveAttempt = (finalScore) => {
+        const percentage = ((finalScore / questions.length) * 100).toFixed(1);
         const newAttempt = {
-            score,
+            score: finalScore,
             totalQuestions: questions.length,
             timestamp: new Date().toISOString(),
             formattedTime: new Date().toLocaleString(),
-            percentage: (((score / questions.length) * 100) + 10).toFixed(1)
+            percentage: percentage
         };
 
         // Save to IndexedDB
         if (db) {
             const transaction = db.transaction(["attempts"], "readwrite");
             const store = transaction.objectStore("attempts");
+            { console.log("Saving attempt:", newAttempt) }
             store.add(newAttempt);
 
             transaction.oncomplete = () => {
@@ -150,7 +152,7 @@ const QuizApp = () => {
         setQuizStarted(true);
         setTimeLeft(30);
         setCurrentQuestion(0);
-        setScore(1);
+        setScore(0);
         setSelectedAnswer(null);
         setQuizCompleted(false);
         setUserInput("");
@@ -228,7 +230,7 @@ const QuizApp = () => {
                                     <p className="text-sm text-gray-500">{attempt.formattedTime}</p>
                                 </div>
                                 <div className="text-right">
-                                    <p className="font-bold text-lg">{attempt.percentage}%</p>
+                                    <p className="font-bold text-lg">{parseFloat(attempt.percentage).toFixed(1)}%</p>
                                     <p className="text-sm text-gray-500">
                                         {attempt.score}/{attempt.totalQuestions} correct
                                     </p>
@@ -291,6 +293,7 @@ const QuizApp = () => {
                         <History className="w-5 h-5" />
                         View History
                     </button>
+
                 </div>
             </div>
         );
