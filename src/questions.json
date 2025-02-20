@@ -19,7 +19,7 @@
     },
     {
         "question": "Which chemical symbol stands for Gold?",
-        "answers": ["Au", "Gd", "Gd", "Gd"],
+        "answers": ["Au", "Gd", "Ag", "Pt"],
         "correctAnswer": "Au",
         "timeLimit": 30
     },
