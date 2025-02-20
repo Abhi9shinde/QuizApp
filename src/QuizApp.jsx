@@ -277,7 +277,7 @@ const QuizApp = () => {
                 <Award className="w-16 h-16 text-yellow-500 mx-auto" />
                 <h2 className="text-3xl font-bold mt-4">Quiz Completed!</h2>
                 <p className="text-xl mt-4">
-                    Score: {score - 1} / {questions.length} ({((score - 1 / questions.length) * 100).toFixed(1)}%)
+                    Score: {score - 1} / {questions.length} ({(((score - 1) / questions.length) * 100).toFixed(1)}%)
                 </p>
                 <div className="flex gap-4 mt-6">
                     <button
