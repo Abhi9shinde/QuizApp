@@ -152,7 +152,7 @@ const QuizApp = () => {
         setQuizStarted(true);
         setTimeLeft(30);
         setCurrentQuestion(0);
-        setScore(0);
+        setScore(1);
         setSelectedAnswer(null);
         setQuizCompleted(false);
         setUserInput("");
